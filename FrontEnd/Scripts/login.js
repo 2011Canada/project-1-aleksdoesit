@@ -15,10 +15,9 @@ async function loginSubmit(e) {
 
   try {
 
-    let res = await fetch("http://localhost:8080/ProjectOne/login/", {
+    let res = await fetch("http://localhost:8080/ProjectOne/login", {
 
       method: "POST",
-      credentials: 'include',
       body: JSON.stringify(credentials),
       headers: {
 
