@@ -1,5 +1,7 @@
 package com.revature.services;
 
+import java.util.List;
+
 import com.revature.models.User;
 import com.revature.repositories.UserDAO;
 
@@ -24,6 +26,14 @@ public class UserServiceImplementation implements UserService {
 			User u = ud.findUserByAccountnameAndPassword(username, password);
 			return u;
 			
+	}
+
+
+	@Override
+	public List<User> getAllUsers() {
+
+		return ud.findAll();
+		
 	}
 	
 

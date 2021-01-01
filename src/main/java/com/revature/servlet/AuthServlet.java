@@ -19,8 +19,8 @@ public class AuthServlet extends HttpServlet {
 	
 	static {
 		
-		allUsers.add(new User("Aleks", "password", "Aleks Nikolic", 1));
-		allUsers.add(new User("Bruce", "password", "Bruce Wayne", 2));
+		//allUsers.add(new User("Aleks", "password", "Aleks Nikolic", 1));
+		//allUsers.add(new User("Bruce", "password", "Bruce Wayne", 2));
 		
 	}
 	

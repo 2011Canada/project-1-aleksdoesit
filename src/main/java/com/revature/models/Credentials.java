@@ -5,16 +5,19 @@ public class Credentials {
 	private String username;
 	
 	private String password;
+	
+	private String userRole;
 
 	public Credentials() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Credentials(String username, String password) {
+	public Credentials(String username, String password, String userRole) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.userRole = userRole;
 	}
 
 	public String getUsername() {
@@ -32,10 +35,18 @@ public class Credentials {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
 
 	@Override
 	public String toString() {
-		return "Credentials [username=" + username + ", password=" + password + "]";
+		return "Credentials [username=" + username + ", password=" + password + ", userRole=" + userRole + "]";
 	}
 
 	@Override
@@ -43,6 +54,7 @@ public class Credentials {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((userRole == null) ? 0 : userRole.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -61,6 +73,11 @@ public class Credentials {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		if (userRole == null) {
+			if (other.userRole != null)
+				return false;
+		} else if (!userRole.equals(other.userRole))
+			return false;
 		if (username == null) {
 			if (other.username != null)
 				return false;
@@ -68,8 +85,5 @@ public class Credentials {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
+
 }

@@ -26,7 +26,7 @@ public class UserPostgresDAO implements UserDAO {
 
 		try {
 
-			String sql = "select * from userss where \"username\" = ? and \"password\" = ? ;";
+			String sql = "select * from users where \"username\" = ? and \"password\" = ? ;";
 			PreparedStatement getCustomer = conn.prepareStatement(sql);
 			getCustomer.setString(1, account_name);
 			getCustomer.setString(2, password);
@@ -36,6 +36,7 @@ public class UserPostgresDAO implements UserDAO {
 
 				User u = new User();
 
+				u.setUserRole(res.getString("User-Role"));
 				u.setName(res.getString("name"));
 				u.setUsername(res.getString("username"));
 				u.setPassword(res.getString("password"));
@@ -67,7 +68,7 @@ public class UserPostgresDAO implements UserDAO {
 
 		try {
 
-			String sql = "select * from customers";
+			String sql = "select * from users";
 			Statement s = conn.createStatement();
 
 			ResultSet res = s.executeQuery(sql);

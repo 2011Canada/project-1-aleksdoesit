@@ -1,6 +1,8 @@
 package com.revature.models;
 
 public class User {
+	
+	private String userRole;
 
 	private String username;
 	
@@ -17,14 +19,26 @@ public class User {
 	
 	
 
-	public User(String username, String password, String name, int userId) {
+	public User(String userRole, String username, String password, String name, int userId) {
 		super();
+		this.userRole = userRole;
 		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.userId = userId;
 	}
 
+
+
+	public String getUserRole() {
+		return userRole;
+	}
+
+
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
 
 
 	public String getUsername() {
@@ -61,7 +75,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", name=" + name + ", userId=" + userId + "]";
+		return "User [userRole=" + userRole + ", username=" + username + ", password=" + password + ", name=" + name
+				+ ", userId=" + userId + "]";
 	}
 
 	@Override
@@ -71,6 +86,7 @@ public class User {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + userId;
+		result = prime * result + ((userRole == null) ? 0 : userRole.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -95,6 +111,11 @@ public class User {
 		} else if (!password.equals(other.password))
 			return false;
 		if (userId != other.userId)
+			return false;
+		if (userRole == null) {
+			if (other.userRole != null)
+				return false;
+		} else if (!userRole.equals(other.userRole))
 			return false;
 		if (username == null) {
 			if (other.username != null)

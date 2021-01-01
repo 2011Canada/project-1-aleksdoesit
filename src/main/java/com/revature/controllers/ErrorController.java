@@ -22,6 +22,7 @@ public class ErrorController {
 		if (t instanceof AbstractHttpException) {
 
 			AbstractHttpException err = (AbstractHttpException) t;
+			System.out.println(t.getMessage());
 			resp.setStatus(err.getStatusCode());
 			resp.getWriter().write(err.getMessage());
 

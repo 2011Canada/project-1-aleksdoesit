@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.revature.controllers.AuthController;
 import com.revature.controllers.ErrorController;
+import com.revature.controllers.UserController;
 
 /**
  * Servlet implementation class FrontController
@@ -18,6 +19,7 @@ public class FrontController extends HttpServlet {
 	
 	private AuthController authController = new AuthController();
 	private ErrorController errorController = new ErrorController();
+	private UserController userController = new UserController();
     
 	protected void directControlRouter(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
@@ -74,13 +76,50 @@ public class FrontController extends HttpServlet {
 		
 		}
 		
-//		case "/error": {
-//			
-//			RequestDispatcher rd = req.getRequestDispatcher("ErrorHandler");
-//			rd.forward(req, res);
-//			
-//			break;
-//		}
+		case "/users": {
+			
+			switch (req.getMethod()) {
+			case "GET": {
+				
+				userController.findAllUsers(req, res);
+				break;
+			
+			}
+			
+			case "POST": {
+				
+				authController.userLogin(req, res);
+				break;
+			
+			}
+			
+			case "PUT": {
+				
+				res.setStatus(400);
+				res.getWriter().write("Method Not Supported");
+				break;
+			
+			}
+			
+			case "DELETE": {
+				
+				res.setStatus(400);
+				res.getWriter().write("Method Not Supported");
+				break;
+			
+			}
+			
+
+			default: {
+			
+				break;
+				
+			}
+		}
+		
+		
+		break;
+		}
 			
 			
 		default: {
