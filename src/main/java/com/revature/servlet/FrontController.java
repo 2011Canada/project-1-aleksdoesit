@@ -1,12 +1,15 @@
 package com.revature.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.revature.controllers.AuthController;
+import com.revature.controllers.ErrorController;
 
 /**
  * Servlet implementation class FrontController
@@ -14,8 +17,9 @@ import com.revature.controllers.AuthController;
 public class FrontController extends HttpServlet {
 	
 	private AuthController authController = new AuthController();
+	private ErrorController errorController = new ErrorController();
     
-	protected void directControl(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	protected void directControlRouter(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
 		
 		String URI = req.getRequestURI().substring(req.getContextPath().length(),
@@ -69,6 +73,14 @@ public class FrontController extends HttpServlet {
 			break;
 		
 		}
+		
+//		case "/error": {
+//			
+//			RequestDispatcher rd = req.getRequestDispatcher("ErrorHandler");
+//			rd.forward(req, res);
+//			
+//			break;
+//		}
 			
 			
 		default: {
@@ -83,6 +95,22 @@ public class FrontController extends HttpServlet {
 		}
 		
 	}
+	
+	
+	protected void directControl(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		try {
+			
+			directControlRouter(request, response);
+			
+		} catch (Throwable t) {
+			
+			errorController.handle(request, response, t);
+			
+		}
+		
+	}
+	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

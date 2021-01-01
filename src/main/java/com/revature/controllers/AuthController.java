@@ -8,7 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.Credentials;
 import com.revature.models.User;
+import com.revature.repositories.UserDAO;
+import com.revature.repositories.UserPostgresDAO;
 import com.revature.services.UserService;
+import com.revature.services.UserServiceImplementation;
 
 public class AuthController {
 	
