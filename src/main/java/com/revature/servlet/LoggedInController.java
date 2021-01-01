@@ -7,87 +7,76 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.controllers.AuthController;
 import com.revature.controllers.ErrorController;
 import com.revature.controllers.UserController;
 
-public class FrontController extends HttpServlet {
-	
-	private AuthController authController = new AuthController();
+public class LoggedInController extends HttpServlet {
+
 	private ErrorController errorController = new ErrorController();
 	private UserController userController = new UserController();
-    
+
 	protected void directControlRouter(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		
-		
+	
 		String URI = req.getRequestURI().substring(req.getContextPath().length(),
-													req.getRequestURI().length());
-		
+														req.getRequestURI().length());
+
 		switch(URI) {
 		
-		case "/login" : {
+			case "/users" : {
 			
-			switch (req.getMethod()) {
-				case "GET": {
-					
-					res.setStatus(400);
-					res.getWriter().write("Method Not Supported");
-					break;
+				switch (req.getMethod()) {
+					case "GET": {
 				
-				}
+						userController.findAllUsers(req, res);
+						break;
+			
+					}
+			
+					case "POST": {
 				
-				case "POST": {
-					
-					authController.userLogin(req, res);
-					break;
+						userController.requestReimbursement(req, res);
+						break;
+			
+					}
+			
+					case "PUT": {
 				
-				}
+						res.setStatus(400);
+						res.getWriter().write("Method Not Supported");
+						break;
 				
-				case "PUT": {
-					
-					res.setStatus(400);
-					res.getWriter().write("Method Not Supported");
-					break;
+					}
+			
+					case "DELETE": {
 				
-				}
+						res.setStatus(400);
+						res.getWriter().write("Method Not Supported");
+						break;
+			
+					}
+			
+					default: {
+			
+						break;
 				
-				case "DELETE": {
-					
-					res.setStatus(400);
-					res.getWriter().write("Method Not Supported");
-					break;
-				
-				}
-				
-
-				default: {
-				
-					break;
-					
 					}
 				}
-			
-			
+				
 			break;
-		
+			
+			}
+			
+			default: {
+				
+				res.setStatus(404);
+				res.getWriter().write("Cannot Find Requested Resource");
+				break;			
+			
+			}
 		}
-			
-			
-		default: {
-			
-			res.setStatus(404);
-			res.getWriter().write("Cannot Find Requested Resource");
-			break;			
-		
-		}
-			
-		
-		}
-		
 	}
 	
-	
-	protected void directControl(HttpServletRequest request, HttpServletResponse response) throws IOException {
+protected void directControl(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		try {
 			
@@ -134,5 +123,4 @@ public class FrontController extends HttpServlet {
 		directControl(request, response);
 		
 	}
-
 }

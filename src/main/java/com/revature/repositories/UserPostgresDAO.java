@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 import com.revature.exceptions.AccountNotFoundException;
 import com.revature.exceptions.InternalErrorException;
+import com.revature.models.Reimbursement;
 import com.revature.models.User;
 import com.revature.util.ConnectionFactory;
 
@@ -40,6 +41,7 @@ public class UserPostgresDAO implements UserDAO {
 				u.setName(res.getString("name"));
 				u.setUsername(res.getString("username"));
 				u.setPassword(res.getString("password"));
+				u.setUserId(res.getInt("user_id"));
 
 				return u;
 
@@ -100,22 +102,22 @@ public class UserPostgresDAO implements UserDAO {
 	}
 	
 
-	public User applyForReimbursement(double amount, String purpose) {
+	public void addReimbursement(double amount, String purpose, int userId) {
 		
 		Connection conn = cf.getConnection();
 		
 		try {
 			
-			String sql = "update \"customers\" "
-						+ "set \"total_balance\" = ?"
-						+ "where \"customer_id\" = ?;";
+			String sql = "insert into reimbursements(\"description\", \"amount\", \"user_id\")\r\n"
+					+ "			values(?, ?, ?);";
 			
-			PreparedStatement updateBalance = conn.prepareStatement(sql);
+			PreparedStatement requestReimbursement = conn.prepareStatement(sql);
 			
-			updateBalance.setDouble(1, amount);
-			updateBalance.setString(2, purpose);
+			requestReimbursement.setString(1, purpose);
+			requestReimbursement.setDouble(2, amount);
+			requestReimbursement.setInt(3, userId);
 			
-			updateBalance.executeUpdate();
+			requestReimbursement.executeUpdate();
 			
 			
 		} catch (SQLException e) {
@@ -124,8 +126,6 @@ public class UserPostgresDAO implements UserDAO {
 			
 		}
 		
-		
-		return null;
 	}
 
 }

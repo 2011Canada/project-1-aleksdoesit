@@ -28,7 +28,18 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>FrontController</servlet-name>
-    <url-pattern>/*</url-pattern>
-  </servlet-mapping>  
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>LoggedInController</display-name>
+    <servlet-name>LoggedInController</servlet-name>
+    <servlet-class>com.revature.servlet.LoggedInController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoggedInController</servlet-name>
+    <url-pattern>/users</url-pattern>
+  </servlet-mapping>   
   
 </web-app>

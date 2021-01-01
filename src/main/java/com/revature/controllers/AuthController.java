@@ -28,11 +28,16 @@ public class AuthController {
 		
 		HttpSession sess = req.getSession();
 		sess.setAttribute("User-Role", u.getUserRole());
+		sess.setAttribute("User-Id", u.getUserId());
+		sess.setAttribute("User-Name", u.getName());
 		
 		System.out.println(u.getUserRole());
 		
 		res.setStatus(200);
 		res.getWriter().write(om.writeValueAsString(u));
+		
+		System.out.println((Integer)sess.getAttribute("User-Id"));
+		System.out.println(u);
 		
 	}
 	

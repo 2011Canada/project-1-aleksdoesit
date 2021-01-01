@@ -10,6 +10,9 @@ import javax.servlet.http.HttpSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.exceptions.UnauthenticatedException;
 import com.revature.exceptions.UnauthorizedException;
+import com.revature.exceptions.loginAsUserException;
+import com.revature.models.Credentials;
+import com.revature.models.Reimbursement;
 import com.revature.models.User;
 import com.revature.repositories.UserPostgresDAO;
 import com.revature.services.UserService;
@@ -41,5 +44,27 @@ public class UserController {
 		
 	}
 	
+	public void requestReimbursement(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		
+		Reimbursement reimbursement = om.readValue(req.getInputStream(), Reimbursement.class);
+		HttpSession sess = req.getSession(false);
+		
+		if(sess.getAttribute("User-Role") == null) {
+			
+			throw new UnauthenticatedException();
+			
+		} else if(!sess.getAttribute("User-Role").equals("User")) {
+			
+			throw new loginAsUserException();
+			
+		}
+		
+		us.requestReimbursement(reimbursement.getAmount(), reimbursement.getDescription(), (Integer)sess.getAttribute("User-Id"));
+		
+		System.out.println((Integer)sess.getAttribute("User-Id"));
+		res.setStatus(200);
+		res.getWriter().write(om.writeValueAsString("worked"));
+		
+	}	
 
 }

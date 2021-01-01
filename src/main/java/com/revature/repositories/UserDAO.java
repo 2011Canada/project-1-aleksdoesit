@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.revature.exceptions.AccountNotFoundException;
 import com.revature.exceptions.InternalErrorException;
+import com.revature.models.Reimbursement;
 import com.revature.models.User;
 
 public interface UserDAO {
@@ -12,5 +13,5 @@ public interface UserDAO {
 	
 	public List<User> findAll();
 
-	User applyForReimbursement(double amount, String purpose);
+	void addReimbursement(double amount, String purpose, int userId);
 }
