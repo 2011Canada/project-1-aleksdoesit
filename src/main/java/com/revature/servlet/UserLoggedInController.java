@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.revature.controllers.ErrorController;
 import com.revature.controllers.UserController;
 
-public class LoggedInController extends HttpServlet {
+public class UserLoggedInController extends HttpServlet {
 
 	private ErrorController errorController = new ErrorController();
 	private UserController userController = new UserController();
@@ -22,18 +22,19 @@ public class LoggedInController extends HttpServlet {
 
 		switch(URI) {
 		
-			case "/users" : {
+			case "/userLogin" : {
 			
 				switch (req.getMethod()) {
 					case "GET": {
 				
-						userController.findAllUsers(req, res);
+						userController.requestSelfHistory(req, res);
+//						userController.findAllUsers(req, res);
 						break;
 			
 					}
 			
 					case "POST": {
-				
+						
 						userController.requestReimbursement(req, res);
 						break;
 			

@@ -54,16 +54,30 @@ public class UserServiceImplementation implements UserService {
 
 
 	@Override
-	public User approveReimbursement(int reimbursementId) {
-		// TODO Auto-generated method stub
-		return null;
+	public void approveReimbursement(int reimbursementId) {
+		
+		ud.approveReimbursement(reimbursementId);
+	}
+	
+	@Override
+	public void rejectReimbursement(int reimbursementId) {
+		
+		ud.rejectReimbursement(reimbursementId);
 	}
 
 
 	@Override
-	public User requestUserHistory(int user_id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Reimbursement> requestUserHistory(int userId) {
+
+		return ud.printEmployeeRecords(userId);
+	}
+
+
+	@Override
+	public List<Reimbursement> requestSelfHistory(int userId) {
+		
+		return ud.printEmployeeRecords(userId);
+		
 	}
 	
 

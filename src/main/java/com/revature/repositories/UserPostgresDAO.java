@@ -100,32 +100,120 @@ public class UserPostgresDAO implements UserDAO {
 		return allUsers;
 
 	}
-	
 
 	public void addReimbursement(double amount, String purpose, int userId) {
-		
+
 		Connection conn = cf.getConnection();
-		
+
 		try {
-			
+
 			String sql = "insert into reimbursements(\"description\", \"amount\", \"user_id\")\r\n"
 					+ "			values(?, ?, ?);";
-			
+
 			PreparedStatement requestReimbursement = conn.prepareStatement(sql);
-			
+
 			requestReimbursement.setString(1, purpose);
 			requestReimbursement.setDouble(2, amount);
 			requestReimbursement.setInt(3, userId);
-			
+
 			requestReimbursement.executeUpdate();
-			
-			
+
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
-			
+
 		}
-		
+
+	}
+
+	public void approveReimbursement(int reimbursementId) {
+
+		Connection conn = cf.getConnection();
+
+		try {
+
+			String sql = "update reimbursements\r\n"
+					+ "	set approval_status = 'Approved'\r\n"
+					+ "	where reimbursement_id = ?;";
+
+			PreparedStatement updateStatus = conn.prepareStatement(sql);
+
+			updateStatus.setInt(1, reimbursementId);
+
+			updateStatus.executeUpdate();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+
+	}
+	
+	public void rejectReimbursement(int reimbursementId) {
+
+		Connection conn = cf.getConnection();
+
+		try {
+
+			String sql = "update reimbursements\r\n"
+					+ "	set approval_status = 'Rejected'\r\n"
+					+ "	where reimbursement_id = ?;";
+
+			PreparedStatement updateStatus = conn.prepareStatement(sql);
+
+			updateStatus.setInt(1, reimbursementId);
+
+			updateStatus.executeUpdate();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+
+	}
+	
+	public List<Reimbursement> printEmployeeRecords(int userId) {
+
+		Connection conn = this.cf.getConnection();
+		List<Reimbursement> printAllForUser = new ArrayList<Reimbursement>();
+
+		try {
+
+			String sql = "select * from reimbursements\r\n"
+					+ "		where user_id = ?;";
+			
+			PreparedStatement s = conn.prepareStatement(sql);
+			s.setInt(1, userId);
+			ResultSet res = s.executeQuery();
+
+			while (res.next()) {
+
+				Reimbursement r = new Reimbursement();
+
+				r.setReimbursementId(res.getInt("reimbursement_id"));
+				r.setDescription(res.getString("description"));
+				r.setAmount(res.getInt("amount"));
+				r.setUserId(res.getInt("user_id"));
+				r.setStatus(res.getString("approval_status"));
+
+				printAllForUser.add(r);
+
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			cf.releaseConnection(conn);
+
+		}
+
+		return printAllForUser;
+
 	}
 
 }

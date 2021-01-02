@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aleks' ERS System</title>
+</head>
+<body>
+
+  <header>
+    <h1></h1>
+  </header>
+
+  <main>
+    <div>
+      <p>Please fill out the form below:</p>
+    </div>
+
+    <div>
+      <form>
+        <div class='purposeWrapper'>
+          <label for='inputPurpose'>Please select a type: </label>
+          <select id=inputPurpose name='purpose'>
+            <option value='LODGING'>LODGING</option>
+            <option value='TRAVEL'>TRAVEL</option>
+            <option value='FOOD'>FOOD</option>
+            <option value='OTHER'>OTHER</option>
+          </select>
+        </div>
+        <div class='amountWrapper'>
+          <label for="inputAmount">Please enter amount of reimbursement: </label>
+          <input type="number" id='inputAmount' min="1" name='inputAmount' placeholder="Enter Your Reimbursement Amount">
+        </div>
+        <div class='buttonWrapper'>
+          <button class='ersButton' type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <div>
+      <button class='ersButton' id="mainMenu" type=submit>Return to main menu</button>
+      <button class='ersButton' id="logout" type=submit>Logout</button>
+    </div>
+
+  </main>
+  
+  <script src='./Scripts/userReimbursement.js'></script>
+</body>
+</html>

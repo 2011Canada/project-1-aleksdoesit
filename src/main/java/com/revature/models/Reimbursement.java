@@ -6,15 +6,24 @@ public class Reimbursement {
 	
 	double amount;
 	
+	int reimbursementId;
+	
+	int userId;
+	
+	String status;
+	
 	public Reimbursement() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reimbursement(String description, int amount) {
+	public Reimbursement(String description, double amount, int reimbursementId, int userId, String status) {
 		super();
 		this.description = description;
 		this.amount = amount;
+		this.reimbursementId = reimbursementId;
+		this.userId = userId;
+		this.status = status;
 	}
 
 	public String getDescription() {
@@ -33,6 +42,30 @@ public class Reimbursement {
 		this.amount = amount;
 	}
 
+	public int getReimbursementId() {
+		return reimbursementId;
+	}
+
+	public void setReimbursementId(int reimbursementId) {
+		this.reimbursementId = reimbursementId;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -41,6 +74,9 @@ public class Reimbursement {
 		temp = Double.doubleToLongBits(amount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + reimbursementId;
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + userId;
 		return result;
 	}
 
@@ -60,14 +96,24 @@ public class Reimbursement {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
+		if (reimbursementId != other.reimbursementId)
+			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
+		if (userId != other.userId)
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Reimbursement [description=" + description + ", amount=" + amount + "]";
+		return "Reimbursement [description=" + description + ", amount=" + amount + ", reimbursementId="
+				+ reimbursementId + ", userId=" + userId + ", status=" + status + "]";
 	}
 
-
+	
 
 }

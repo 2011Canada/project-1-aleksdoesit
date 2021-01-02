@@ -25,7 +25,7 @@ public class FrontController extends HttpServlet {
 		
 		switch(URI) {
 		
-		case "/login" : {
+		case "/index" : {
 			
 			switch (req.getMethod()) {
 				case "GET": {

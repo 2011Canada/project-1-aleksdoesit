@@ -15,8 +15,12 @@ public interface UserService {
 	
 	public void requestReimbursement(double amount, String description, int userId);
 	
-	public User approveReimbursement(int reimbursementId);
+	public void approveReimbursement(int reimbursementId);
 	
-	public User requestUserHistory(int user_id);
+	public void rejectReimbursement(int reimbursementId);
+	
+	public List<Reimbursement> requestUserHistory(int userId);
+	
+	public List<Reimbursement> requestSelfHistory(int userId);
 	
 }
