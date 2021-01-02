@@ -27,8 +27,8 @@ public class UserLoggedInController extends HttpServlet {
 				switch (req.getMethod()) {
 					case "GET": {
 				
-//						userController.requestSelfHistory(req, res);
-						userController.findAllUsers(req, res);
+						userController.requestSelfHistory(req, res);
+//						userController.findAllUsers(req, res);
 						break;
 			
 					}

@@ -21,11 +21,11 @@ async function loadUserHistory(e) {
 
     console.log(userHistory);
 
-    document.querySelector(".reimbursementHistory").innerHTML = userHistory.map(function (userHistory) {
+    document.querySelector(".reimbursementHistory").innerHTML = '<ol>' + userHistory.map(function (userHistory) {
 
-      return `<p>For: ${userHistory.description} in amount: $${userHistory.amount}. Your unique reimbursement ID is: ${userHistory.reimbursementId} and current status on this request is ${userHistory.status}.</p>`
+      return `<li>For: ${userHistory.description} in amount: $${userHistory.amount}. Your unique reimbursement ID is: ${userHistory.reimbursementId} and current status on this request is ${userHistory.status}.</li>`
 
-    })
+    }).join('') + '</ol>';
 
   } catch (e) {
 

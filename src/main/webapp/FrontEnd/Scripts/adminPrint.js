@@ -25,7 +25,7 @@ async function loadUserHistory(e) {
 
       return `<li>For: ${userHistory.description} - Employee: ${userHistory.employeeId} - Amount: ${userHistory.amount} - Unique reimbursement ID: ${userHistory.reimbursementId} - Current status: ${userHistory.status}.</li>`
 
-    }).join('') + '</ul>';
+    }).join('') + '</ol>';
 
   } catch (e) {
 
