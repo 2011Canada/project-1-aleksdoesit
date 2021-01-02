@@ -23,7 +23,7 @@ async function loadUserHistory(e) {
 
     document.querySelector(".reimbursementHistory").innerHTML = userHistory.map(function (userHistory) {
 
-      return `<p>For: ${userHistory.description} in amount: ${userHistory.amount}. Your unique reimbursement ID is: ${userHistory.reimbursementId} and current status on this request is ${userHistory.status}.</p>`
+      return `<p>For: ${userHistory.description} in amount: $${userHistory.amount}. Your unique reimbursement ID is: ${userHistory.reimbursementId} and current status on this request is ${userHistory.status}.</p>`
 
     })
 

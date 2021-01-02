@@ -2,10 +2,6 @@ let userName = JSON.parse(window.localStorage.getItem('currentUser'));
 
 document.getElementsByTagName("h1")[0].innerHTML = `ERS System - Admin ${userName.name}, Employee ID: ${userName.userId}.`;
 
-
-document.getElementById("logout").addEventListener('click', logoutSubmit)
-document.getElementById("mainMenu").addEventListener('click', mainMenuSubmit)
-
 async function loadUserHistory(e) {
 
   try  {
@@ -52,3 +48,12 @@ function mainMenuSubmit(e) {
   window.location = "adminLogin.html";
 
 }
+
+window.onload = function() {
+
+  loadUserHistory();
+
+}
+
+document.getElementById("logout").addEventListener('click', logoutSubmit)
+document.getElementById("mainMenu").addEventListener('click', mainMenuSubmit)
