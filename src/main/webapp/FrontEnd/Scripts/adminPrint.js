@@ -29,7 +29,7 @@ async function loadUserHistory(e) {
 
     }).join('') + '</ol>';
 
-    setTimeout(switchStatusColour, 200);
+    setTimeout(switchStatusColour, 75);
 
   } catch (e) {
 
