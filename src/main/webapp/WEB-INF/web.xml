@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>ProjectOne</display-name>
-  
   <filter>
     <filter-name>CORS</filter-name>
     <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
@@ -18,8 +17,6 @@
     <filter-name>CORS</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  
-  
   <servlet>
     <description></description>
     <display-name>FrontController</display-name>
@@ -30,7 +27,6 @@
     <servlet-name>FrontController</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>UserLoggedInController</display-name>
@@ -40,6 +36,35 @@
   <servlet-mapping>
     <servlet-name>UserLoggedInController</servlet-name>
     <url-pattern>/userLogin</url-pattern>
-  </servlet-mapping>   
-  
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminApproveReimbursementController</display-name>
+    <servlet-name>AdminApproveReimbursementController</servlet-name>
+    <servlet-class>com.revature.servlet.AdminApproveReimbursementController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminApproveReimbursementController</servlet-name>
+    <url-pattern>/adminApprove</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminRejectReimbursementController</display-name>
+    <servlet-name>AdminRejectReimbursementController</servlet-name>
+    <servlet-class>com.revature.servlet.AdminRejectReimbursementController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminRejectReimbursementController</servlet-name>
+    <url-pattern>/adminReject</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminSearchHistoryController</display-name>
+    <servlet-name>AdminSearchHistoryController</servlet-name>
+    <servlet-class>com.revature.servlet.AdminSearchHistoryController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminSearchHistoryController</servlet-name>
+    <url-pattern>/adminSearch</url-pattern>
+  </servlet-mapping>
 </web-app>

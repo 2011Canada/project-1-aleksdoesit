@@ -1,6 +1,8 @@
 package com.revature.models;
 
 public class Reimbursement {
+	
+	String type;
 
 	String description;
 	
@@ -17,13 +19,23 @@ public class Reimbursement {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reimbursement(String description, double amount, int reimbursementId, int userId, String status) {
+	public Reimbursement(String type, String description, double amount, int reimbursementId, int userId,
+			String status) {
 		super();
+		this.type = type;
 		this.description = description;
 		this.amount = amount;
 		this.reimbursementId = reimbursementId;
 		this.userId = userId;
 		this.status = status;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getDescription() {
@@ -76,6 +88,7 @@ public class Reimbursement {
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + reimbursementId;
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		result = prime * result + userId;
 		return result;
 	}
@@ -103,6 +116,11 @@ public class Reimbursement {
 				return false;
 		} else if (!status.equals(other.status))
 			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
 		if (userId != other.userId)
 			return false;
 		return true;
@@ -110,10 +128,7 @@ public class Reimbursement {
 
 	@Override
 	public String toString() {
-		return "Reimbursement [description=" + description + ", amount=" + amount + ", reimbursementId="
-				+ reimbursementId + ", userId=" + userId + ", status=" + status + "]";
+		return "Reimbursement [type=" + type + ", description=" + description + ", amount=" + amount
+				+ ", reimbursementId=" + reimbursementId + ", userId=" + userId + ", status=" + status + "]";
 	}
-
-	
-
 }

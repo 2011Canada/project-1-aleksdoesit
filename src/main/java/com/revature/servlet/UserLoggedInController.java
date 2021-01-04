@@ -28,7 +28,6 @@ public class UserLoggedInController extends HttpServlet {
 					case "GET": {
 				
 						userController.requestSelfHistory(req, res);
-//						userController.findAllUsers(req, res);
 						break;
 			
 					}

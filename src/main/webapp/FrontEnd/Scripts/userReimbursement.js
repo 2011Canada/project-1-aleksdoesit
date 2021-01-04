@@ -6,16 +6,22 @@ async function submitRequest(e) {
   
   e.preventDefault()
 
-  let description = document.getElementById("inputPurpose").value
+  let type = document.getElementById("inputPurpose").value
 
   let amount = document.getElementById("inputAmount").value
+
+  let description = document.getElementById("inputDescription").value
 
   let reimbursement = {
 
     description,
-    amount
+    amount,
+    type
+
 
   }
+
+  console.log(reimbursement)
 
   try {
 

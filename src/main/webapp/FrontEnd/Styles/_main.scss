@@ -1,0 +1,340 @@
+html {
+
+  background: linear-gradient(90deg, rgba(242,170,170,1) 15%, rgba(166,220,239,1) 77%);
+
+
+}
+body {
+  
+  p,
+  label,
+  input {
+
+    color: #232b2b;
+    font-family: $bodyFont;
+
+  }
+
+  button {
+
+    color: #232b2b;
+    background-color: $primarySalmon;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid $primarySalmon;
+    transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+
+  }
+
+  button:hover {
+
+    border: 1px solid #232b2b;
+    color: $primarySalmon;
+    background-color: #232b2b;
+    cursor: pointer;
+    transform: scale(1.2);
+
+  }
+
+  header { 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .ersLogo {
+
+      height: 70px;
+
+    }
+
+    padding-top: 100px;
+
+      h1, h2, h3, h4, h5, h6 {
+    
+        font-family: $titleFont;
+        color: #ffff;
+        text-shadow: -2px -2px 2px #e36387;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+      }
+
+  }
+
+  .formWrapper {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+      form {
+        background-size: contain;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .usernameWrapper,
+        .passwordWrapper {
+
+          margin-bottom: 20px;
+          margin-bottom: 20px;
+
+          input {
+
+            width: 200px;
+            border-radius: 6px;
+            padding-left: 15px;
+            
+
+          }
+
+          #inputUsername {
+
+            padding-left: 15px;
+
+          }
+
+        }
+
+      }
+
+  }
+
+}
+
+.userLoginMain {
+
+  background-color: $primaryWhite;
+  margin: 60px auto;
+  width: 700px;
+  border: 1px solid #232b2b;
+  border-radius: 10px;
+
+  .subHeaderLogin {
+
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+  
+  }
+
+  .userLoginWrapper {
+
+    display: flex;
+    justify-content: center;
+
+    button {
+
+      margin: 20px;
+
+    }
+  }
+  #logout {
+  
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 20px;
+  
+  }
+}
+
+.userHistoryMain { 
+
+  background-color: $primaryWhite;
+  margin: 60px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #232b2b;
+  width: 700px;
+  border-radius: 10px;
+
+  .ersButton {
+
+    margin: 20px;
+
+  }
+}
+
+.userReimbursementMain {
+
+  margin: 60px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #232b2b;
+  width: 700px;
+  border-radius: 10px;
+  background-color: $primaryWhite;
+
+  .purposeWrapper {
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+
+    #inputPurpose {
+
+      border-radius: 4px;
+
+    }
+  }
+
+  #inputAmount {
+
+    border-radius: 4px;
+    padding-left: 15px;
+
+  }
+
+  #inputDescription {
+
+    margin-top: 5px;
+    border-radius: 4px;
+    padding-left: 15px;
+
+  }
+
+  .buttonWrapper {
+
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+
+  }
+
+  #mainMenu {
+
+    margin-right: 10px;
+    margin-bottom: 20px;
+
+  }
+}
+
+.adminPrintMain {
+
+  background-color: $primaryWhite;
+  padding: 10px;
+  margin: 60px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #232b2b;
+  width: 900px;
+  border-radius: 10px;
+
+  form {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    #inputReimbursementId,
+    #inputStatus {
+
+      border-radius: 4px;
+      margin-bottom: 5px;
+
+    }
+
+    .buttonWrapper {
+
+      margin: 10px;
+
+    }
+
+  }
+
+  #mainMenu {
+
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+  }
+
+}
+
+.adminLoginMain {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #232b2b;
+  border-radius: 10px;
+  width: 700px;
+  margin: 60px auto;
+  background-color: $primaryWhite;
+  
+
+  .adminLoginButtonWrapper {
+
+    button {
+
+      margin: 20px 10px;
+
+    }
+
+  }
+
+  #logout {
+
+    margin-bottom: 20px;
+    
+  }
+
+}
+
+.adminFindMain {
+
+  background-color: $primaryWhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #232b2b;
+  border-radius: 10px;
+  width: 700px;
+  margin: 60px auto;
+
+  form {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    button {
+
+      display: block;
+      margin: 10px auto;
+
+    }
+
+    #inputUserId {
+
+      border-radius: 10px;
+      padding-left: 15px;
+
+    }
+
+  }
+
+  #mainMenu {
+
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+  }
+
+}

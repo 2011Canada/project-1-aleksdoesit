@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aleks' ERS System</title>
+
+  <link rel="stylesheet" href="./Styles/styles.css">
+</head>
+<body>
+
+  <header>
+    <h1></h1>
+  </header>
+
+  <main class='adminFindMain'>
+    <div>
+      <p>Aleks' ERS System reimbursement history: </p>
+    </div>
+
+    <div>
+      <h3>Please enter the employee ID to print their reimbursement history.</h3>
+      <form>
+        <div class='userIdWrapper'>
+          <label for="inputUserId">Employee ID&nbsp;&nbsp;</label>
+          <input type="text" id='inputUserId' name='inputUserId'placeholder='Enter Employee ID'>
+          <button class='ersButton' type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+
+    <div class='reimbursementHistory'></div>
+
+    <div>
+      <button class='ersButton' id="mainMenu" type=submit>Return to Admin Menu</button>
+      <button class='ersButton' id="logout" type=submit>Logout</button>
+    </div>
+
+  </main>
+  
+  <script src='./Scripts/adminFind.js'></script>
+</body>
+</html>

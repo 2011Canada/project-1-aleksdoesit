@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Changa:wght@500;600&family=Montserrat:wght@400;500;600&display=swap");
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -235,7 +237,379 @@ html {
   overflow: hidden;
 }
 
-h1 {
-  background-color: red;
+html {
+  background: -webkit-gradient(linear, left top, right top, color-stop(15%, #f2aaaa), color-stop(77%, #a6dcef));
+  background: linear-gradient(90deg, #f2aaaa 15%, #a6dcef 77%);
+}
+
+body p,
+body label,
+body input {
+  color: #232b2b;
+  font-family: "Montserrat", sans-serif;
+}
+
+body button {
+  color: #232b2b;
+  background-color: #f2aaaa;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid #f2aaaa;
+  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+}
+
+body button:hover {
+  border: 1px solid #232b2b;
+  color: #f2aaaa;
+  background-color: #232b2b;
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 100px;
+}
+
+body header .ersLogo {
+  height: 70px;
+}
+
+body header h1, body header h2, body header h3, body header h4, body header h5, body header h6 {
+  font-family: "Changa", sans-serif;
+  color: #ffff;
+  text-shadow: -2px -2px 2px #e36387;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .formWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .formWrapper form {
+  background-size: contain;
+  padding: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .formWrapper form .usernameWrapper,
+body .formWrapper form .passwordWrapper {
+  margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+body .formWrapper form .usernameWrapper input,
+body .formWrapper form .passwordWrapper input {
+  width: 200px;
+  border-radius: 6px;
+  padding-left: 15px;
+}
+
+body .formWrapper form .usernameWrapper #inputUsername,
+body .formWrapper form .passwordWrapper #inputUsername {
+  padding-left: 15px;
+}
+
+.userLoginMain {
+  background-color: #f9f1f1;
+  margin: 60px auto;
+  width: 700px;
+  border: 1px solid #232b2b;
+  border-radius: 10px;
+}
+
+.userLoginMain .subHeaderLogin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: bold;
+}
+
+.userLoginMain .userLoginWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.userLoginMain .userLoginWrapper button {
+  margin: 20px;
+}
+
+.userLoginMain #logout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.userHistoryMain {
+  background-color: #f9f1f1;
+  margin: 60px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #232b2b;
+  width: 700px;
+  border-radius: 10px;
+}
+
+.userHistoryMain .ersButton {
+  margin: 20px;
+}
+
+.userReimbursementMain {
+  margin: 60px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #232b2b;
+  width: 700px;
+  border-radius: 10px;
+  background-color: #f9f1f1;
+}
+
+.userReimbursementMain .purposeWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 5px;
+}
+
+.userReimbursementMain .purposeWrapper #inputPurpose {
+  border-radius: 4px;
+}
+
+.userReimbursementMain #inputAmount {
+  border-radius: 4px;
+  padding-left: 15px;
+}
+
+.userReimbursementMain #inputDescription {
+  margin-top: 5px;
+  border-radius: 4px;
+  padding-left: 15px;
+}
+
+.userReimbursementMain .buttonWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 10px;
+}
+
+.userReimbursementMain #mainMenu {
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.adminPrintMain {
+  background-color: #f9f1f1;
+  padding: 10px;
+  margin: 60px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #232b2b;
+  width: 900px;
+  border-radius: 10px;
+}
+
+.adminPrintMain form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.adminPrintMain form #inputReimbursementId,
+.adminPrintMain form #inputStatus {
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.adminPrintMain form .buttonWrapper {
+  margin: 10px;
+}
+
+.adminPrintMain #mainMenu {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.adminLoginMain {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #232b2b;
+  border-radius: 10px;
+  width: 700px;
+  margin: 60px auto;
+  background-color: #f9f1f1;
+}
+
+.adminLoginMain .adminLoginButtonWrapper button {
+  margin: 20px 10px;
+}
+
+.adminLoginMain #logout {
+  margin-bottom: 20px;
+}
+
+.adminFindMain {
+  background-color: #f9f1f1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #232b2b;
+  border-radius: 10px;
+  width: 700px;
+  margin: 60px auto;
+}
+
+.adminFindMain form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.adminFindMain form button {
+  display: block;
+  margin: 10px auto;
+}
+
+.adminFindMain form #inputUserId {
+  border-radius: 10px;
+  padding-left: 15px;
+}
+
+.adminFindMain #mainMenu {
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=styles.css.map */

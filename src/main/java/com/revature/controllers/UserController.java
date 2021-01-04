@@ -59,7 +59,7 @@ public class UserController {
 
 		}
 
-		us.requestReimbursement(reimbursement.getAmount(), reimbursement.getDescription(),
+		us.requestReimbursement(reimbursement.getAmount(), reimbursement.getType(), reimbursement.getDescription(),
 				(Integer) sess.getAttribute("User-Id"));
 
 		System.out.println((Integer) sess.getAttribute("User-Id"));
@@ -154,6 +154,27 @@ public class UserController {
 
 		res.setStatus(200);
 		res.getWriter().write(om.writeValueAsString(printAllForUser));
+
+	}
+	
+	public void findAllReimbursements(HttpServletRequest req, HttpServletResponse res) throws IOException {
+
+		HttpSession sess = req.getSession();
+
+		if (sess.getAttribute("User-Role") == null) {
+
+			throw new UnauthenticatedException();
+
+		} else if (!sess.getAttribute("User-Role").equals("Admin")) {
+
+			throw new UnauthorizedException();
+
+		}
+
+		List<Reimbursement> allReimbursements = us.getAllReimbursements();
+
+		res.setStatus(200);
+		res.getWriter().write(om.writeValueAsString(allReimbursements));
 
 	}
 

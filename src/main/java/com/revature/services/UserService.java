@@ -11,9 +11,9 @@ public interface UserService {
 	
 	public List<User> getAllUsers();
 	
-	public List<User> getAllReimbursements();
+	public List<Reimbursement> getAllReimbursements();
 	
-	public void requestReimbursement(double amount, String description, int userId);
+	public void requestReimbursement(double amount, String type, String description, int userId);
 	
 	public void approveReimbursement(int reimbursementId);
 	

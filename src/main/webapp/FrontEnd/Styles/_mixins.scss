@@ -1,5 +1,11 @@
-h1 {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@500;600&family=Montserrat:wght@400;500;600&display=swap');
 
-  background-color: red;
+$titleFont: 'Changa', sans-serif;
+$bodyFont: 'Montserrat', sans-serif;
 
-}
+$primaryGreen: #ddf3f5;
+$primaryBlue: #a6dcef;
+$primarySalmon: #f2aaaa;
+$primaryPink: #e36387;
+$primaryWhite: #f9f1f1;

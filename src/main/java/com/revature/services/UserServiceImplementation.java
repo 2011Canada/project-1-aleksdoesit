@@ -39,16 +39,16 @@ public class UserServiceImplementation implements UserService {
 
 
 	@Override
-	public List<User> getAllReimbursements() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Reimbursement> getAllReimbursements() {
+		
+		return ud.getAllReimbursements();
 	}
 
 
 	@Override
-	public void requestReimbursement(double amount, String description, int userId) {
+	public void requestReimbursement(double amount, String type, String description, int userId) {
 		
-		ud.addReimbursement(amount, description, userId);
+		ud.addReimbursement(amount, type, description, userId);
 		
 	}
 

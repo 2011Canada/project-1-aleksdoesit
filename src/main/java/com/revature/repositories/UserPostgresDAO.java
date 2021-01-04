@@ -101,20 +101,21 @@ public class UserPostgresDAO implements UserDAO {
 
 	}
 
-	public void addReimbursement(double amount, String purpose, int userId) {
+	public void addReimbursement(double amount, String type, String purpose, int userId) {
 
 		Connection conn = cf.getConnection();
 
 		try {
 
-			String sql = "insert into reimbursements(\"description\", \"amount\", \"user_id\")\r\n"
-					+ "			values(?, ?, ?);";
+			String sql = "insert into reimbursements(\"description\", \"amount\", \"user_id\", \"type\")\r\n"
+					+ "			values(?, ?, ?, ?);";
 
 			PreparedStatement requestReimbursement = conn.prepareStatement(sql);
 
 			requestReimbursement.setString(1, purpose);
 			requestReimbursement.setDouble(2, amount);
 			requestReimbursement.setInt(3, userId);
+			requestReimbursement.setString(4, type);
 
 			requestReimbursement.executeUpdate();
 
@@ -197,6 +198,7 @@ public class UserPostgresDAO implements UserDAO {
 				r.setAmount(res.getInt("amount"));
 				r.setUserId(res.getInt("user_id"));
 				r.setStatus(res.getString("approval_status"));
+				r.setType(res.getString("type"));
 
 				printAllForUser.add(r);
 
@@ -213,6 +215,48 @@ public class UserPostgresDAO implements UserDAO {
 		}
 
 		return printAllForUser;
+
+	}
+	
+	public List<Reimbursement> getAllReimbursements() {
+
+		Connection conn = this.cf.getConnection();
+		List<Reimbursement> allReimbursements = new ArrayList<Reimbursement>();
+
+		try {
+
+			String sql = "select * from reimbursements";
+			Statement s = conn.createStatement();
+
+			ResultSet res = s.executeQuery(sql);
+
+			while (res.next()) {
+
+				Reimbursement r = new Reimbursement();
+
+				r.setDescription(res.getString("description"));
+				r.setAmount(res.getDouble("amount"));
+				r.setReimbursementId(res.getInt("reimbursement_id"));
+				r.setUserId(res.getInt("user_id"));
+				r.setStatus(res.getString("approval_status"));
+				r.setType(res.getString("type"));
+				
+
+				allReimbursements.add(r);
+
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			cf.releaseConnection(conn);
+
+		}
+
+		return allReimbursements;
 
 	}
 

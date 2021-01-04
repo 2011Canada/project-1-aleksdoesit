@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aleks' ERS System</title>
+
+  <link rel="stylesheet" href="./Styles/styles.css">
 </head>
 <body>
 
@@ -11,17 +13,16 @@
     <h1></h1>
   </header>
 
-  <main>
+  <main class='adminLoginMain'>
     <div>
       <p>What would you like to do today?</p>
     </div>
 
-    <div>
-      <button class='ersButton' id="approveReimbursement" type=submit>Approve pending reimbursement requests</button>
+    <div class='adminLoginButtonWrapper'>
       <button class='ersButton' id="findUser" type=submit>Find reimbursement request by a User ID</button>
-      <button class='ersButton' id="printAll" type=submit>Print full reimbursement history</button>
-      <button class='ersButton' id="logout" type=submit>Logout</button>
+      <button class='ersButton' id="printAll" type=submit>Approve or Reject Reimbursements</button>
     </div>
+    <button class='ersButton' id="logout" type=submit>Logout</button>
   </main>
   
   <script src='./Scripts/adminLogin.js'></script>

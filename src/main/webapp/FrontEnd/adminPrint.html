@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aleks' ERS System</title>
+
+  <link rel="stylesheet" href="./Styles/styles.css">
 </head>
 <body>
 
@@ -11,9 +13,29 @@
     <h1></h1>
   </header>
 
-  <main>
+  <main class='adminPrintMain'>
     <div>
       <p>Aleks' ERS System reimbursement history: </p>
+    </div>
+
+    <div>
+      <h3>Please enter the reimbursement ID of the reimbursement you wish to approve or reject.</h3>
+      <form>
+        <div class='reimbursementIdWrapper'>
+          <label for="inputReimbursementId">Reimbursement ID: &nbsp;&nbsp;</label>
+          <input type="text" id='inputReimbursementId' name='inputReimbursementId'placeholder='Enter Reimbursement ID'>
+        </div>
+        <div class='statusWrapper'>
+          <label for="inputStatus">Status of reimbursement request:&nbsp;&nbsp;</label>
+          <select name='inputStatus' id='inputStatus' >
+            <option value="Rejected">Reject</option>
+            <option value="Approved">Approve</option>
+          </select>
+        </div>
+        <div class='buttonWrapper'>
+          <button class='ersButton' type="submit">Send Request</button>
+        </div>
+      </form>
     </div>
 
     <div class='reimbursementHistory'></div>
