@@ -25,27 +25,11 @@ async function loadUserHistory(e) {
 
     document.querySelector(".reimbursementHistory").innerHTML = '<ol>' + userHistory.map(function (userHistory) {
 
-      return `<li>Type: ${userHistory.type} - For: ${userHistory.description} - Employee: ${userHistory.userId} - Amount: ${userHistory.amount} - Unique reimbursement ID: ${userHistory.reimbursementId} - Current status: <span id='requestStatus'>${userHistory.status}</span>.</li>`
+      return `<li>Type: ${userHistory.type} - For: ${userHistory.description} - Employee: ${userHistory.userId} - Amount: ${userHistory.amount} - Unique reimbursement ID: ${userHistory.reimbursementId} - Current status: <span class='requestStatus'>${userHistory.status}</span>.</li>`
 
     }).join('') + '</ol>';
 
-    let switchElement = document.getElementById('requestStatus');
-
-    switch(userHistory.status.value) {
-
-      case "Approved":
-        switchElement.classList.add('approvedGreen');
-        break;
-      
-      case "Rejected":
-        switchElement.classList.add('rejectedRed');
-        break;
-      
-      case "Pending":
-        switchElement.classList.add('pendingYellow');
-        break;
-    }
-
+    setTimeout(switchStatusColour, 200);
 
   } catch (e) {
 
@@ -160,6 +144,52 @@ function approveOrReject(e) {
     rejectEmployeeReimbursement()
   }
 }
+
+function switchStatusColour() {
+
+  let spans = document.getElementsByTagName('span');
+
+  for (let i = 0; i < spans.length; i++) {
+
+     if(spans[i].textContent == "Pending") {
+
+      spans[i].classList.add('pendingYellow');
+
+     } else if(spans[i].textContent == "Approved") {
+
+       spans[i].classList.add('approvedGreen');
+
+    } else if(spans[i].textContent == "Rejected") {
+
+      spans[i].classList.add('rejectedRed');
+
+    }
+
+  }
+
+  // let statusText = document.querySelector('requestStatus').innerHTML;
+  // let switchElement = document.querySelector('.requestStatus')
+  
+  // console.log(statusText)
+  // console.log(switchElement)
+
+  // switch(switchElement) {
+
+  //   case "Approved":
+  //     switchElement.classList.add('approvedGreen');
+  //     break;
+      
+  //   case "Rejected":
+  //     switchElement.classList.add('rejectedRed');
+  //     break;
+      
+  //   case "Pending":
+  //     switchElement.classList.add('pendingYellow');
+  //     break;
+  // }
+
+}
+
 
 document.getElementById("logout").addEventListener('click', logoutSubmit)
 document.getElementById("mainMenu").addEventListener('click', mainMenuSubmit)
