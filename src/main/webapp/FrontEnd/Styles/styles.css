@@ -632,4 +632,16 @@ body .formWrapper form .passwordWrapper #inputUsername {
   height: 70px;
   margin-right: 4px;
 }
+
+.rejectedRed {
+  background-color: #f59aa8;
+}
+
+.approvedGreen {
+  background-color: #b0dfc2;
+}
+
+.pendingYellow {
+  background-color: #ffffb7;
+}
 /*# sourceMappingURL=styles.css.map */

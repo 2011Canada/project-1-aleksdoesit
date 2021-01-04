@@ -25,9 +25,27 @@ async function loadUserHistory(e) {
 
     document.querySelector(".reimbursementHistory").innerHTML = '<ol>' + userHistory.map(function (userHistory) {
 
-      return `<li>Type: ${userHistory.type} - For: ${userHistory.description} - Employee: ${userHistory.userId} - Amount: ${userHistory.amount} - Unique reimbursement ID: ${userHistory.reimbursementId} - Current status: ${userHistory.status}.</li>`
+      return `<li>Type: ${userHistory.type} - For: ${userHistory.description} - Employee: ${userHistory.userId} - Amount: ${userHistory.amount} - Unique reimbursement ID: ${userHistory.reimbursementId} - Current status: <span id='requestStatus'>${userHistory.status}</span>.</li>`
 
     }).join('') + '</ol>';
+
+    let switchElement = document.getElementById('requestStatus');
+
+    switch(userHistory.status.value) {
+
+      case "Approved":
+        switchElement.classList.add('approvedGreen');
+        break;
+      
+      case "Rejected":
+        switchElement.classList.add('rejectedRed');
+        break;
+      
+      case "Pending":
+        switchElement.classList.add('pendingYellow');
+        break;
+    }
+
 
   } catch (e) {
 
