@@ -9,11 +9,24 @@ Welcome to:
 
 # Technology
 
-A full-stack application utilizing HTML, CSS(SCSS) and Javascript in the front-end with Java, Servlets, Tomcat, and SQL handling the back-end and database.
+ - Java 1.8
+ - Spring Tool Suite
+ - JDBC and Servlets
+ - Apache Maven
+ - Apache Tomcat
+ - HTML/CSS/JavaScript
+ - AJAX
+ - SQL with DBeaver/Postman Testing
+ - Git/GitHub
 
 # Features
 
 This all in one application allows Users to login and apply for employee reimbursements, and view past tickets, while also allowing administrators to manage(approve/deny) reimbursements, and print detailed records of reimbursements by unique employee ID's or return all from the database.
+
+  - User Log-in and registration functionality
+  - Admin control for approving/denying reimbursements
+  - Users can create reimbursements
+  - Reimbursement history tracking
 
 # Usage
 
